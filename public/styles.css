@@ -66,7 +66,8 @@ main .cards__list .card {
   margin-bottom: 10px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  align-items: center;
 }
 main .cards__list .card__title {
   text-align: center;
@@ -79,6 +80,9 @@ main .cards__list .card__image {
 main .cards__list .card__add {
   bottom: 5px;
   right: 5px;
+  width: 100%;
+  background-color: #920000;
+  color: white;
 }
 
 .pagination ul {
