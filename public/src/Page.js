@@ -1,5 +1,6 @@
 import Cards from "./Cards.js";
 import Navbar from "./Navbar.js";
+import Detail from "./Detail.js";
 
 class Page {
   parentElement;
@@ -81,7 +82,7 @@ class Page {
 
     this.detailElement = this.mainElement.querySelector("section.detail");
 
-    // new Cards(this.cardsElement, this.paginationElement, this.pageType);
+    new Detail(this.detailElement);
   }
 }
 

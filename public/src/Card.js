@@ -23,8 +23,10 @@ class Card {
   createCardHTML() {
     this.cardElement = document.createElement("li");
     this.cardElement.className = "card";
-    this.cardElement.innerHTML = `<h2 class="card__title">${this.pokemonName}</h2>
-              <a href= ""><img src="img/defaultImage.png" height="130" alt="${this.pokemonName} image" class="card__image" /></a>
+    this.cardElement.innerHTML = `<h2 class="card__title">${this.pokemonName.toUpperCase()}</h2>
+              <a href= ""><img src="img/defaultImage.png" height="130" alt="${
+                this.pokemonName
+              } image" class="card__image" /></a>
               <button class="card__add">+</button>`;
     this.parentElement.appendChild(this.cardElement);
     (async () => {
