@@ -63,7 +63,7 @@ class Page {
     this.paginationElement =
       this.mainElement.querySelector("section.pagination");
 
-    new Cards(this.cardsElement, this.pageType);
+    new Cards(this.cardsElement, this.paginationElement, this.pageType);
   }
 }
 

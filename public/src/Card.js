@@ -31,7 +31,6 @@ class Card {
       this.pokemonDetail = await this.pokemonService.getPokemon(this.url);
       this.cardElement.querySelector(".card__image").src =
         this.pokemonDetail.sprites.other.dream_world.front_default;
-      console.log(this.pokemonDetail);
     })();
   }
 }
