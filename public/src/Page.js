@@ -18,7 +18,11 @@ class Page {
     this.parentElement = parentElement;
     this.pageType = pageType;
     this.createHeader();
-    this.createMain();
+    if (this.pageType !== "detail") {
+      this.createMain();
+    } else {
+      this.createMainDetail();
+    }
   }
 
   createHeader() {
@@ -59,12 +63,10 @@ class Page {
         break;
     }
 
-    if (this.pageType !== "detail") {
-      this.cardsElement = this.mainElement.querySelector("section.cards");
-      this.paginationElement =
-        this.mainElement.querySelector("section.pagination");
-      new Cards(this.cardsElement, this.paginationElement, this.pageType);
-    }
+    this.cardsElement = this.mainElement.querySelector("section.cards");
+    this.paginationElement =
+      this.mainElement.querySelector("section.pagination");
+    new Cards(this.cardsElement, this.paginationElement, this.pageType);
   }
 }
 
