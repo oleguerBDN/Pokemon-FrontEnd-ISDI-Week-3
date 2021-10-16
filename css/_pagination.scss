@@ -12,9 +12,16 @@
       display: inline;
       &:hover {
         background-color: black;
+        cursor: pointer;
       }
       &--active {
         background-color: rgb(146, 0, 0);
+      }
+      &--center {
+        &:hover {
+          background-color: "";
+          cursor: default;
+        }
       }
     }
   }
