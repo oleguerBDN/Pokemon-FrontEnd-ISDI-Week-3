@@ -5,22 +5,23 @@
     margin: 2em auto;
     padding-left: 0;
     list-style-type: none;
+
     .pagination__item {
       padding: 8px 16px;
-      background-color: #333;
-      color: white;
+      background-color: $secondary-color;
+      color: $low-color;
       display: inline;
       &:hover {
-        background-color: black;
+        background-color: $dark-color;
         cursor: pointer;
       }
       &--active {
-        background-color: rgb(146, 0, 0);
+        background-color: $detail-color;
       }
       &--center {
         &:hover {
-          background-color: "";
           cursor: default;
+          background-color: "";
         }
       }
     }

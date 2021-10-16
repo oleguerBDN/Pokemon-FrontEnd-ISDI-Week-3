@@ -6,7 +6,7 @@
     display: inline-block;
     nav {
       overflow: hidden;
-      background-color: #333;
+      background-color: $secondary-color;
       position: fixed;
       top: 0;
       width: 100%;
@@ -20,7 +20,7 @@
           font-family: $font-stack;
           font-size: 17px;
           a {
-            color: #f2f2f2;
+            color: $low-color;
             text-decoration: none;
             padding: 14px;
             &:hover {
