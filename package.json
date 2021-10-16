@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest"
+    "test": "npx jest",
+    "compile-sass": "npx sass css/styles.scss public/styles.css",
+    "dev-sass": "npx sass --watch css/styles.scss public/styles.css"
   },
   "repository": {
     "type": "git",
