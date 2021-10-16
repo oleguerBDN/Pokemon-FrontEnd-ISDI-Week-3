@@ -24,7 +24,7 @@ class Card {
     this.cardElement = document.createElement("li");
     this.cardElement.className = "card";
     this.cardElement.innerHTML = `   <h2 class="card__title">${this.pokemonName}</h2>
-              <img src="" height="130" alt="${this.pokemonName} image" class="card__image" />
+              <img src="img/defaultImage.png" height="130" alt="${this.pokemonName} image" class="card__image" />
               <button class="card__add">+</button>`;
     this.parentElement.appendChild(this.cardElement);
     (async () => {
