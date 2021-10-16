@@ -43,6 +43,7 @@ header nav ul .navbar__item a:hover {
 }
 
 main {
+  cursor: default;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -78,12 +79,21 @@ main .cards__list .card__title {
 main .cards__list .card__image {
   width: 80%;
 }
+main .cards__list .card__image:hover {
+  height: 150px;
+  width: 90%;
+}
 main .cards__list .card__add {
   bottom: 5px;
   right: 5px;
   width: 100%;
   background-color: #920000;
   color: white;
+  cursor: pointer;
+  border: none;
+}
+main .cards__list .card__add:hover {
+  background-color: #333;
 }
 main .cards__list .card a {
   width: 100%;
