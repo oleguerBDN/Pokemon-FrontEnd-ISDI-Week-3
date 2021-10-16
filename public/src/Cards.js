@@ -27,10 +27,10 @@ class Cards {
   }
 
   fillCardList() {
-    this.pokemonService.url =
-      "https://pokeapi.co/api/v2/pokemon?limit=12&offset=0";
     (async () => {
-      this.pokemonList = await this.pokemonService.getPokemons();
+      this.pokemonList = await this.pokemonService.getPokemons(
+        "https://pokeapi.co/api/v2/pokemon?limit=12&offset=0"
+      );
       this.pokemonList.results.map(
         (pokemon) => new Card(this.cardsListElement, pokemon.name, pokemon.url)
       );
