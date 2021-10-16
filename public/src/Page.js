@@ -1,6 +1,7 @@
 import Cards from "./Cards.js";
 import Navbar from "./Navbar.js";
 import Detail from "./Detail.js";
+import Pokeball from "./Pokeball.js";
 
 class Page {
   parentElement;
@@ -51,22 +52,22 @@ class Page {
         <section class="pagination">
         </section>
     `;
+    this.cardsElement = this.mainElement.querySelector("section.cards");
+    this.paginationElement =
+      this.mainElement.querySelector("section.pagination");
     const mainTitle = this.mainElement.querySelector(".main__title");
     switch (this.pageType) {
       case "index":
         mainTitle.textContent = "ALL POKEMONS";
+        new Cards(this.cardsElement, this.paginationElement);
         break;
       case "pokeball":
         mainTitle.textContent = "MY POKEBALL";
+        new Pokeball(this.cardsElement);
         break;
       default:
         break;
     }
-
-    this.cardsElement = this.mainElement.querySelector("section.cards");
-    this.paginationElement =
-      this.mainElement.querySelector("section.pagination");
-    new Cards(this.cardsElement, this.paginationElement, this.pageType);
   }
 
   createMainDetail() {
