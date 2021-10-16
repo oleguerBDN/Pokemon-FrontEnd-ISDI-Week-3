@@ -18,6 +18,10 @@ class Cards {
 
   url = "https://pokeapi.co/api/v2/pokemon?limit=12&offset=0";
 
+  offset = 0;
+
+  totalPokemons;
+
   constructor(cardsParentElement, paginationParentElement, pageType) {
     this.pokemonService = new PokemonService();
     this.cardsParentElement = cardsParentElement;
@@ -55,13 +59,32 @@ class Cards {
     rightButton.addEventListener("click", this.rightClicked);
   }
 
+  leftClicked = () => {
+    if (this.offset !== 0) {
+      this.offset -= 12;
+      const offsetPosition = this.url.indexOf("offset=") + 7;
+      this.url = this.url.substring(0, offsetPosition) + this.offset;
+      this.fillCardList();
+    }
+  };
+
+  rightClicked = () => {
+    if (this.offset + 12 < this.totalPokemons) {
+      this.offset += 12;
+      const offsetPosition = this.url.indexOf("offset=") + 7;
+      this.url = this.url.substring(0, offsetPosition) + this.offset;
+      this.fillCardList();
+    }
+  };
+
   fillCardList() {
+    this.cardsListElement.innerHTML = "";
     (async () => {
       this.pokemonList = await this.pokemonService.getPokemons(this.url);
+      this.totalPokemons = this.pokemonList.count;
       this.pokemonList.results.map(
         (pokemon) => new Card(this.cardsListElement, pokemon.name, pokemon.url)
       );
-      console.log(this.pokemonList.results);
     })();
   }
 }
