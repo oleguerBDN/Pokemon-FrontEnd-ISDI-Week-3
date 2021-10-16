@@ -15,7 +15,6 @@ class Cards {
   pokemonList;
 
   url = "https://pokeapi.co/api/v2/pokemon?limit=12&offset=0";
-  // url = "https://oleguer-pokemon.herokuapp.com/pokemon";
 
   offset = 0;
 
@@ -80,7 +79,6 @@ class Cards {
     this.cardsListElement.innerHTML = "";
     (async () => {
       this.pokemonList = await this.pokemonService.getPokemons(this.url);
-      console.log(this.pokemonList);
       this.totalPokemons = this.pokemonList.count;
       this.pokemonList.results.map(
         (pokemon) => new Card(this.cardsListElement, pokemon.name, pokemon.url)
