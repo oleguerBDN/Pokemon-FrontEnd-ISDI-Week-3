@@ -91,7 +91,6 @@ class Cards {
   }
 
   updatePagination() {
-    console.log(this.totalPokemons);
     this.paginationElement.querySelector(
       ".pagination__item--center"
     ).textContent = `${this.offset + 1} / ${this.totalPokemons}`;

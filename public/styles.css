@@ -102,9 +102,14 @@ main .cards__list .card a {
 }
 .pagination ul .pagination__item:hover {
   background-color: black;
+  cursor: pointer;
 }
 .pagination ul .pagination__item--active {
   background-color: #920000;
+}
+.pagination ul .pagination__item--center:hover {
+  background-color: "";
+  cursor: default;
 }
 
 .detail {
