@@ -84,6 +84,9 @@ main .cards__list .card__add {
   background-color: #920000;
   color: white;
 }
+main .cards__list .card a {
+  width: 100%;
+}
 
 .pagination ul {
   margin: 2em auto;

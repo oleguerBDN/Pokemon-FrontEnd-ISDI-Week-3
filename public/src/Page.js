@@ -14,11 +14,17 @@ class Page {
 
   footerElement;
 
+  detailElement;
+
   constructor(parentElement, pageType) {
     this.parentElement = parentElement;
     this.pageType = pageType;
     this.createHeader();
-    this.createMain();
+    if (this.pageType !== "detail") {
+      this.createMain();
+    } else {
+      this.createMainDetail();
+    }
   }
 
   createHeader() {
@@ -52,9 +58,6 @@ class Page {
       case "pokeball":
         mainTitle.textContent = "MY POKEBALL";
         break;
-      case "detail":
-        mainTitle.textContent = "CARD DETAILS";
-        break;
       default:
         break;
     }
@@ -62,8 +65,23 @@ class Page {
     this.cardsElement = this.mainElement.querySelector("section.cards");
     this.paginationElement =
       this.mainElement.querySelector("section.pagination");
-
     new Cards(this.cardsElement, this.paginationElement, this.pageType);
+  }
+
+  createMainDetail() {
+    this.mainElement = document.createElement("main");
+    this.mainElement.className = "main";
+    this.parentElement.appendChild(this.mainElement);
+    this.mainElement.innerHTML = `
+    <h1 class="main__title"></h1>
+        <section class="detail">
+        </section>
+    `;
+    this.mainElement.querySelector(".main__title").textContent = "CARD DETAILS";
+
+    this.detailElement = this.mainElement.querySelector("section.detail");
+
+    // new Cards(this.cardsElement, this.paginationElement, this.pageType);
   }
 }
 

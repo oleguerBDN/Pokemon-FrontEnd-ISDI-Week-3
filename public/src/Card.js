@@ -23,14 +23,17 @@ class Card {
   createCardHTML() {
     this.cardElement = document.createElement("li");
     this.cardElement.className = "card";
-    this.cardElement.innerHTML = `   <h2 class="card__title">${this.pokemonName}</h2>
-              <img src="img/defaultImage.png" height="130" alt="${this.pokemonName} image" class="card__image" />
+    this.cardElement.innerHTML = `<h2 class="card__title">${this.pokemonName}</h2>
+              <a href= ""><img src="img/defaultImage.png" height="130" alt="${this.pokemonName} image" class="card__image" /></a>
               <button class="card__add">+</button>`;
     this.parentElement.appendChild(this.cardElement);
     (async () => {
       this.pokemonDetail = await this.pokemonService.getPokemon(this.url);
       this.cardElement.querySelector(".card__image").src =
         this.pokemonDetail.sprites.other.dream_world.front_default;
+      this.cardElement.querySelector(
+        "a"
+      ).href = `detail.html?id=${this.pokemonDetail.id}`;
     })();
   }
 }
