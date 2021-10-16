@@ -1,4 +1,4 @@
-import Page from "../src/Page.js";
+import Page from "./src/Page.js";
 
 const appContainer = document.querySelector(".app");
 
