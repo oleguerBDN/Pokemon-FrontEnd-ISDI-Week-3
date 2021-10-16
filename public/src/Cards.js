@@ -1,29 +1,20 @@
 class Cards {
   parentElement;
 
-  constructor(parentElement, navbarList) {
+  cardsList;
+
+  pageType;
+
+  constructor(parentElement, pageType) {
     this.parentElement = parentElement;
-    this.navbarList = navbarList;
-    this.createNavbarHTML();
+    this.pageType = pageType;
+    this.createCardsHTML();
   }
 
-  createNavbarHTML() {
-    const navElement = document.createElement("nav");
-    navElement.className = "navbar";
-    const ulElement = document.createElement("ul");
-    ulElement.className = "navbar";
-    this.parentElement.appendChild(navElement);
-    navElement.appendChild(ulElement);
-
-    this.navbarList.forEach((listItem) => {
-      const newItem = document.createElement("li");
-      newItem.className = "navbar__item";
-      ulElement.appendChild(newItem);
-      const newArrow = document.createElement("a");
-      newArrow.href = listItem.href;
-      newArrow.textContent = listItem.text;
-      newItem.appendChild(newArrow);
-    });
+  createCardsHTML() {
+    this.cardsList = document.createElement("ul");
+    this.cardsList.className = "cards__list";
+    this.parentElement.appendChild(this.cardsList);
   }
 }
 

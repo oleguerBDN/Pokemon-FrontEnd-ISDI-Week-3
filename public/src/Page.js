@@ -40,12 +40,8 @@ class Page {
     this.mainElement.innerHTML = `
     <h1 class="main__title"></h1>
         <section class="cards">
-          <ul class="cards__list">
-          </ul>
         </section>
         <section class="pagination">
-          <ul class="pagination">
-          </ul>
         </section>
     `;
     const mainTitle = this.mainElement.querySelector(".main__title");
@@ -63,8 +59,9 @@ class Page {
         break;
     }
 
-    this.cardsElement = this.mainElement.querySelector(".cards__list");
-    this.paginationElement = this.mainElement.querySelector("ul .pagination");
+    this.cardsElement = this.mainElement.querySelector("section.cards");
+    this.paginationElement =
+      this.mainElement.querySelector("section.pagination");
 
     new Cards(this.cardsElement, this.pageType);
   }
