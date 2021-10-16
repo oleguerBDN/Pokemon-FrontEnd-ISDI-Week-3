@@ -44,7 +44,7 @@ class Pokeball {
               <a href="detail.html?id=${pokemon.id}"><img src="${
           pokemon.sprites.other.dream_world.front_default
         }" height="130" alt=" ${pokemon.name} image" class="card__image" /></a>
-              <button class="card__add">+</button>`;
+              <button class="card__add">REMOVE -</button>`;
       });
     })();
   }

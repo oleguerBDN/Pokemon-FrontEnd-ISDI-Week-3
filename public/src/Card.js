@@ -27,7 +27,7 @@ class Card {
               <a href= ""><img src="img/defaultImage.png" height="130" alt="${
                 this.pokemonName
               } image" class="card__image" /></a>
-              <button class="card__add">+</button>`;
+              <button class="card__add">CATCH +</button>`;
     this.parentElement.appendChild(this.cardElement);
     (async () => {
       this.pokemonDetail = await this.pokemonService.getPokemon(this.url);
