@@ -25,7 +25,8 @@
         margin-bottom: 10px;
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-between;
+        align-items: center;
         &__title {
           text-align: center;
           margin: 0;
@@ -37,6 +38,9 @@
         &__add {
           bottom: 5px;
           right: 5px;
+          width: 100%;
+          background-color: rgb(146, 0, 0);
+          color: white;
         }
       }
     }
