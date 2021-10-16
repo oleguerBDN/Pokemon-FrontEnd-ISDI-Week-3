@@ -1,6 +1,7 @@
 @import "variables";
 @import "header";
 @import "cards";
+@import "pagination";
 
 * {
   box-sizing: border-box;
@@ -11,3 +12,4 @@ body {
 }
 @include header;
 @include cards;
+@include pagination;
