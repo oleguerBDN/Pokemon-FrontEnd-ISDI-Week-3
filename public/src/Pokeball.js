@@ -1,5 +1,4 @@
 import PokemonService from "./PokemonService.js";
-import Card from "./Card.js";
 
 class Pokeball {
   cardsParentElement;
@@ -35,12 +34,18 @@ class Pokeball {
     this.cardsListElement.innerHTML = "";
     (async () => {
       this.pokemonList = await this.pokemonService.getPokemons(this.url);
-      console.log(this.pokemonList);
       this.totalPokemons = this.pokemonList.length;
-      console.log(this.totalPokemons);
-      this.pokemonList.map(
-        (pokemon) => new Card(this.cardsListElement, pokemon.name, pokemon.url)
-      );
+      // eslint-disable-next-line array-callback-return
+      this.pokemonList.map((pokemon) => {
+        this.cardElement = document.createElement("li");
+        this.cardElement.className = "card";
+        this.cardsListElement.appendChild(this.cardElement);
+        this.cardElement.innerHTML = `<h2 class="card__title">${pokemon.name.toUpperCase()}</h2>
+              <a href="detail.html?id=${pokemon.id}"><img src="${
+          pokemon.sprites.other.dream_world.front_default
+        }" height="130" alt=" ${pokemon.name} image" class="card__image" /></a>
+              <button class="card__add">+</button>`;
+      });
     })();
   }
 }
