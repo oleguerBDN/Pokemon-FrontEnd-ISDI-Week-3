@@ -10,23 +10,21 @@ class Cards {
 
   paginationElement;
 
-  pageType;
-
   pokemonService;
 
   pokemonList;
 
   url = "https://pokeapi.co/api/v2/pokemon?limit=12&offset=0";
+  // url = "https://oleguer-pokemon.herokuapp.com/pokemon";
 
   offset = 0;
 
   totalPokemons;
 
-  constructor(cardsParentElement, paginationParentElement, pageType) {
+  constructor(cardsParentElement, paginationParentElement) {
     this.pokemonService = new PokemonService();
     this.cardsParentElement = cardsParentElement;
     this.paginationParentElement = paginationParentElement;
-    this.pageType = pageType;
     this.createCardsHTML();
     this.createPaginationHTML();
     this.fillCardList();
@@ -82,6 +80,7 @@ class Cards {
     this.cardsListElement.innerHTML = "";
     (async () => {
       this.pokemonList = await this.pokemonService.getPokemons(this.url);
+      console.log(this.pokemonList);
       this.totalPokemons = this.pokemonList.count;
       this.pokemonList.results.map(
         (pokemon) => new Card(this.cardsListElement, pokemon.name, pokemon.url)
