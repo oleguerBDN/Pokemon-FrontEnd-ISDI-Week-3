@@ -1,3 +1,4 @@
+import Cards from "./Cards.js";
 import Navbar from "./Navbar.js";
 
 class Page {
@@ -17,6 +18,7 @@ class Page {
     this.parentElement = parentElement;
     this.pageType = pageType;
     this.createHeader();
+    this.createMain();
   }
 
   createHeader() {
@@ -24,13 +26,47 @@ class Page {
     this.headerElement.className = "header";
     this.parentElement.appendChild(this.headerElement);
 
-    console.log(this.parentElement);
-    console.log(this.headerElement);
     const navbarList = [
       { href: "index.html", text: "ALL POKEMONS" },
       { href: "pokeball.html", text: "POKEBALL" },
     ];
     new Navbar(this.headerElement, navbarList);
+  }
+
+  createMain() {
+    this.mainElement = document.createElement("main");
+    this.mainElement.className = "main";
+    this.parentElement.appendChild(this.mainElement);
+    this.mainElement.innerHTML = `
+    <h1 class="main__title"></h1>
+        <section class="cards">
+          <ul class="cards__list">
+          </ul>
+        </section>
+        <section class="pagination">
+          <ul class="pagination">
+          </ul>
+        </section>
+    `;
+    const mainTitle = this.mainElement.querySelector(".main__title");
+    switch (this.pageType) {
+      case "index":
+        mainTitle.textContent = "ALL POKEMONS";
+        break;
+      case "pokeball":
+        mainTitle.textContent = "MY POKEBALL";
+        break;
+      case "detail":
+        mainTitle.textContent = "CARD DETAILS";
+        break;
+      default:
+        break;
+    }
+
+    this.cardsElement = this.mainElement.querySelector(".cards__list");
+    this.paginationElement = this.mainElement.querySelector("ul .pagination");
+
+    new Cards(this.cardsElement, this.pageType);
   }
 }
 
