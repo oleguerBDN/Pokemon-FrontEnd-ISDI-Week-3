@@ -1,5 +1,6 @@
 @import "variables";
 @import "header";
+@import "cards";
 
 * {
   box-sizing: border-box;
@@ -9,3 +10,4 @@ body {
   padding: 0;
 }
 @include header;
+@include cards;

@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 * {
   box-sizing: border-box;
 }
@@ -37,6 +38,46 @@ header nav ul .navbar__item a {
 }
 header nav ul .navbar__item a:hover {
   background-color: #111;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+  font-family: "Fira Sans", sans-serif;
+}
+main .cards__list {
+  width: 900px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+main .cards__list .card {
+  width: 200px;
+  height: 220px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main .cards__list .card__title {
+  text-align: center;
+  margin: 0;
+  padding-top: 5px;
+}
+main .cards__list .card__image {
+  width: 80%;
+}
+main .cards__list .card__add {
+  bottom: 5px;
+  right: 5px;
 }
 
 /*# sourceMappingURL=styles.css.map */

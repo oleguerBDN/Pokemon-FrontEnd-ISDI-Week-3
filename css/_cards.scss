@@ -1,0 +1,44 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+
+@mixin cards {
+  main {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    width: 100%;
+    text-align: center;
+    font-family: $font-stack;
+
+    .cards__list {
+      width: 900px;
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      .card {
+        width: 200px;
+        height: 220px;
+        border: 2px solid black;
+        margin-bottom: 10px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        &__title {
+          text-align: center;
+          margin: 0;
+          padding-top: 5px;
+        }
+        &__image {
+          width: 80%;
+        }
+        &__add {
+          bottom: 5px;
+          right: 5px;
+        }
+      }
+    }
+  }
+}
