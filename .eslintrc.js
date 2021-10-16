@@ -16,6 +16,7 @@ module.exports = {
     "consistent-return": "off",
     "no-debugger": "off",
     "no-console": "off",
+    "import/extensions": "off",
   },
   parser: "@babel/eslint-parser",
 };
