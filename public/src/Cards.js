@@ -28,8 +28,8 @@ class Cards {
     this.paginationParentElement = paginationParentElement;
     this.pageType = pageType;
     this.createCardsHTML();
-    this.fillCardList();
     this.createPaginationHTML();
+    this.fillCardList();
     this.addPaginationListeners();
   }
 
@@ -44,6 +44,7 @@ class Cards {
     this.paginationElement.className = "pagination";
     this.paginationParentElement.appendChild(this.paginationElement);
     this.paginationElement.innerHTML = `<li class="pagination__item pagination__item--left"><<</li>
+    <li class="pagination__item pagination__item--center"></li>
             <li class="pagination__item pagination__item--right">>></li>`;
   }
 
@@ -85,7 +86,15 @@ class Cards {
       this.pokemonList.results.map(
         (pokemon) => new Card(this.cardsListElement, pokemon.name, pokemon.url)
       );
+      this.updatePagination();
     })();
+  }
+
+  updatePagination() {
+    console.log(this.totalPokemons);
+    this.paginationElement.querySelector(
+      ".pagination__item--center"
+    ).textContent = `${this.offset + 1} / ${this.totalPokemons}`;
   }
 }
 
