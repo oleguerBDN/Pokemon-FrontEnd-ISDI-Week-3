@@ -1,6 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 @import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
 * {
   box-sizing: border-box;
 }
@@ -104,6 +105,39 @@ main .cards__list .card a {
 }
 .pagination ul .pagination__item--active {
   background-color: #920000;
+}
+
+.detail {
+  width: 900px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+}
+.detail .card {
+  width: 300px;
+  height: 390px;
+  border: 4px solid black;
+  background-color: #920000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #f2f2f2;
+}
+.detail .card__list {
+  padding: 0;
+}
+.detail .card__list li {
+  list-style: none;
+  text-align: center;
+  margin: 0;
+  font-size: 16px;
+}
+.detail .card__name {
+  font-size: 30px;
+  padding: 5px;
+  margin: 10px;
 }
 
 /*# sourceMappingURL=styles.css.map */
