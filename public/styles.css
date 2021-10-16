@@ -1,0 +1,102 @@
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+@import url("https://fonts.googleapis.com/css?family=Fira+Sans");
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  width: 100%;
+  display: inline-block;
+}
+header nav {
+  overflow: hidden;
+  background-color: #333;
+  position: fixed;
+  top: 0;
+  width: 100%;
+}
+header nav ul {
+  text-align: center;
+  list-style-type: none;
+  margin: 0;
+  padding: 15px;
+}
+header nav ul .navbar__item {
+  display: inline;
+  font-family: "Fira Sans", sans-serif;
+  font-size: 17px;
+}
+header nav ul .navbar__item a {
+  color: #f2f2f2;
+  text-decoration: none;
+  padding: 14px;
+}
+header nav ul .navbar__item a:hover {
+  background-color: #111;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  width: 100%;
+  text-align: center;
+  font-family: "Fira Sans", sans-serif;
+}
+main .cards__list {
+  width: 900px;
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+main .cards__list .card {
+  width: 200px;
+  height: 220px;
+  border: 2px solid black;
+  margin-bottom: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+main .cards__list .card__title {
+  text-align: center;
+  margin: 0;
+  padding-top: 5px;
+}
+main .cards__list .card__image {
+  width: 80%;
+}
+main .cards__list .card__add {
+  bottom: 5px;
+  right: 5px;
+}
+
+.pagination ul {
+  margin: 2em auto;
+  padding-left: 0;
+  list-style-type: none;
+}
+.pagination ul .pagination__item {
+  padding: 8px 16px;
+  background-color: #333;
+  color: white;
+  display: inline;
+}
+.pagination ul .pagination__item:hover {
+  background-color: black;
+}
+.pagination ul .pagination__item--active {
+  background-color: #920000;
+}
+
+/*# sourceMappingURL=styles.css.map */

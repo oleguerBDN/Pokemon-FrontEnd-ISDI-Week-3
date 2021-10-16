@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "npx jest"
+    "test": "npx jest",
+    "compile-sass": "npx sass css/styles.scss public/styles.css",
+    "dev-sass": "npx sass --watch css/styles.scss public/styles.css"
   },
   "repository": {
     "type": "git",
@@ -25,7 +27,8 @@
     "eslint-config-airbnb-base": "^14.2.1",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-import": "^2.25.2",
-    "jest": "^27.2.5"
+    "jest": "^27.2.5",
+    "sass": "^1.43.2"
   },
   "babel": {
     "env": {
