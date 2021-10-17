@@ -83,7 +83,7 @@ main .cards__list .card__image:hover {
   height: 150px;
   width: 90%;
 }
-main .cards__list .card__add {
+main .cards__list .card__add, main .cards__list .card__remove {
   bottom: 5px;
   right: 5px;
   width: 100%;
@@ -92,7 +92,7 @@ main .cards__list .card__add {
   cursor: pointer;
   border: none;
 }
-main .cards__list .card__add:hover {
+main .cards__list .card__add:hover, main .cards__list .card__remove:hover {
   background-color: #333;
 }
 main .cards__list .card a {
