@@ -5,7 +5,7 @@ class Detail {
 
   url = "https://pokeapi.co/api/v2/pokemon/";
 
-  urlPokeball = "https://oleguer-pokemon.herokuapp.com/pokemon";
+  urlPokeball = "https://oleguer-pokemon.herokuapp.com/pokemon/";
 
   cardElement;
 
@@ -20,12 +20,12 @@ class Detail {
   getUrl() {
     const idPosition = location.href.indexOf("id=") + 3;
     const pidPosition = location.href.indexOf("pid=") + 4;
+
     if (pidPosition > 4) {
-      this.url = `${this.url}${location.href.substring(pidPosition)}/`;
+      this.url = `${this.urlPokeball}${location.href.substring(pidPosition)}/`;
     } else {
       this.url = `${this.url}${location.href.substring(idPosition)}/`;
     }
-    console.log(this.url);
   }
 
   createCardHTML() {

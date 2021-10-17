@@ -41,7 +41,7 @@ class Pokeball {
         this.cardElement.className = "card";
         this.cardsListElement.appendChild(this.cardElement);
         this.cardElement.innerHTML = `<h2 class="card__title">${pokemon.name.toUpperCase()}</h2>
-              <a href="detail.html?id=${pokemon.id}"><img src="${
+              <a href="detail.html?pid=${pokemon.id}"><img src="${
           pokemon.sprites.other.dream_world.front_default
         }" height="130" alt=" ${pokemon.name} image" class="card__image" /></a>
               <button class="card__remove" id="${
