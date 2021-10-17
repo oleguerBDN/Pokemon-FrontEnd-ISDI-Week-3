@@ -1,5 +1,7 @@
 /* eslint-disable class-methods-use-this */
 class PokemonService {
+  PokeballUrl = "https://oleguer-pokemon.herokuapp.com/pokemon";
+
   async getPokemons(url) {
     const response = await fetch(url);
     const pokemonsList = await response.json();
@@ -17,9 +19,14 @@ class PokemonService {
     if (response.ok) return true;
   }
 
-  // method: "DELETE"
-  // const response = await fetch ( shit_to_delete_url, { method: "delete"}
-  // if response.ok  return true;
+  async addPokemon(jsonInfo) {
+    const response = await fetch(this.PokeballUrl, {
+      method: "post",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(jsonInfo),
+    });
+    if (response.ok) return true;
+  }
 }
 
 export default PokemonService;
