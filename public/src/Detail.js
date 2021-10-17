@@ -131,7 +131,7 @@ class Detail {
                   <li class="card__height">
                     <label for="weight">Weight:</label>
                     <input type="text" id="weight" name="weight" required
-                    minlength="1" maxlength="4" size="4" value="${this.pokemonDetail.height}">
+                    minlength="1" maxlength="4" size="4" value="${this.pokemonDetail.weight}">
                   </li>
                   </ul>
             `;
@@ -163,7 +163,16 @@ class Detail {
         },
       };
     }
+    this.applyChangesToApi();
   };
+
+  async applyChangesToApi() {
+    await this.pokemonService.modifyPokemon(this.url, this.pokemonDetail);
+    this.fillCard();
+    this.editButton.removeEventListener("click", this.saveCardChanges);
+    this.editButton.textContent = "EDIT POKEMON";
+    this.editButton.addEventListener("click", this.showEditCard);
+  }
 }
 
 export default Detail;
