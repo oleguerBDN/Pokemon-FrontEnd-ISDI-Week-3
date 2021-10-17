@@ -10,12 +10,17 @@ class Detail {
 
   cardElement;
 
+  editCard = false;
+
   constructor(parentElement) {
     this.pokemonService = new PokemonService();
     this.parentElement = parentElement;
     this.getUrl();
     this.createCardHTML();
     this.fillCard();
+    if (this.editCard) {
+      this.addEditButton();
+    }
   }
 
   getUrl() {
@@ -24,6 +29,7 @@ class Detail {
 
     if (pidPosition > 4) {
       this.url = `${this.urlPokeball}${location.href.substring(pidPosition)}/`;
+      this.editCard = true;
     } else {
       this.url = `${this.url}${location.href.substring(idPosition)}/`;
     }
@@ -68,6 +74,18 @@ class Detail {
         ".card__type"
       ).textContent += ` - ${this.pokemonDetail.types[1].type.name}`;
     }
+  }
+
+  addEditButton() {
+    const newButton = document.createElement("button");
+    newButton.className = "edit";
+    newButton.textContent = "EDIT POKEMON";
+    this.parentElement.appendChild(newButton);
+    newButton.addEventListener("click", this.showEditCard);
+  }
+
+  showEditCard() {
+    console.log("kk");
   }
 }
 
