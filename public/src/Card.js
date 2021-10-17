@@ -36,8 +36,21 @@ class Card {
       this.cardElement.querySelector(
         "a"
       ).href = `detail.html?id=${this.pokemonDetail.id}`;
+      this.addListener();
     })();
   }
+
+  addListener() {
+    this.cardElement
+      .querySelector(".card__add")
+      .addEventListener("click", this.addClickedPokemon);
+  }
+
+  addClickedPokemon = () => {
+    (async () => {
+      await this.pokemonService.addPokemon(this.pokemonDetail);
+    })();
+  };
 }
 
 export default Card;
