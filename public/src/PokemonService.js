@@ -34,6 +34,15 @@ class PokemonService {
       if (response.ok) return true;
     }
   }
+
+  async modifyPokemon(url, jsonInfo) {
+    const response = await fetch(url, {
+      method: "put",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(jsonInfo),
+    });
+    if (response.ok) return true;
+  }
 }
 
 export default PokemonService;
