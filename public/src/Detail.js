@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 import PokemonService from "./PokemonService.js";
 
 class Detail {

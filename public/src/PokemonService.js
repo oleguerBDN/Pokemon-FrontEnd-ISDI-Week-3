@@ -20,12 +20,19 @@ class PokemonService {
   }
 
   async addPokemon(jsonInfo) {
-    const response = await fetch(this.PokeballUrl, {
-      method: "post",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(jsonInfo),
-    });
-    if (response.ok) return true;
+    const getExistingPokemons = await this.getPokemons(this.PokeballUrl);
+    let checkExistingId = [];
+    checkExistingId = getExistingPokemons.filter(
+      (pokemon) => pokemon.id === jsonInfo.id
+    );
+    if (checkExistingId.length === 0) {
+      const response = await fetch(this.PokeballUrl, {
+        method: "post",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(jsonInfo),
+      });
+      if (response.ok) return true;
+    }
   }
 }
 
