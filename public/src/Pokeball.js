@@ -44,10 +44,29 @@ class Pokeball {
               <a href="detail.html?id=${pokemon.id}"><img src="${
           pokemon.sprites.other.dream_world.front_default
         }" height="130" alt=" ${pokemon.name} image" class="card__image" /></a>
-              <button class="card__add">REMOVE -</button>`;
+              <button class="card__remove" id="${
+                pokemon.id
+              }">REMOVE -</button>`;
       });
+      this.addListeners();
     })();
   }
+
+  addListeners() {
+    const deleteButtons =
+      this.cardsListElement.querySelectorAll(".card__remove");
+    deleteButtons.forEach((item) =>
+      item.addEventListener("click", this.removeClickedPokemons)
+    );
+  }
+
+  removeClickedPokemons = (clickedItem) => {
+    const url = `${this.url}/${clickedItem.target.id}/`;
+    (async () => {
+      await this.pokemonService.deletePokemon(url);
+      this.fillCardList();
+    })();
+  };
 }
 
 export default Pokeball;
