@@ -12,6 +12,14 @@ class Detail {
 
   editCard = false;
 
+  pokemonDetail;
+
+  pokemonObject = {};
+
+  pokemonService;
+
+  editButton;
+
   constructor(parentElement) {
     this.pokemonService = new PokemonService();
     this.parentElement = parentElement;
@@ -77,16 +85,74 @@ class Detail {
   }
 
   addEditButton() {
-    const newButton = document.createElement("button");
-    newButton.className = "edit";
-    newButton.textContent = "EDIT POKEMON";
-    this.parentElement.appendChild(newButton);
-    newButton.addEventListener("click", this.showEditCard);
+    this.editButton = document.createElement("button");
+    this.editButton.className = "edit";
+    this.editButton.textContent = "EDIT POKEMON";
+    this.parentElement.appendChild(this.editButton);
+    this.editButton.addEventListener("click", this.showEditCard);
   }
 
-  showEditCard() {
-    console.log("kk");
-  }
+  showEditCard = () => {
+    this.cardElement.innerHTML = `
+            <h2 class="card__name">${this.pokemonDetail.name.toUpperCase()}</h2>
+                  <img
+                    src="${
+                      this.pokemonDetail.sprites.other.dream_world.front_default
+                    }"
+                    height="180" width = "290"
+                    alt="${this.pokemonDetail.name} Image"
+                    class="card__image"
+                  />
+                  <ul class="card__list">
+                  <li class="card__order">
+                    <label for="order">Order:</label>
+                    <input type="text" id="order" name="order" required
+                    minlength="1" maxlength="4" size="4" value="${
+                      this.pokemonDetail.order
+                    }">
+                  </li>
+                  <li class="card__type">
+                    <label for="type">Type:</label>
+                    <input type="text" id="type1" name="type1" required
+                    minlength="1" maxlength="10" size="10" value="${
+                      this.pokemonDetail.types[0].type.name
+                    }">
+                    <input type="text" id="type2" name="type2" required
+                    minlength="1" maxlength="10" size="10" value="">
+                  </li>
+                  <li class="card__xp">
+                    <label for="xp">XP:</label>
+                    <input type="text" id="xp" name="xp" required
+                    minlength="1" maxlength="4" size="4" value="${
+                      this.pokemonDetail.base_experience
+                    }">
+                  </li>
+                  <li class="card__height">
+                    <label for="height">Height:</label>
+                    <input type="text" id="height" name="height" required
+                    minlength="1" maxlength="4" size="4" value="${
+                      this.pokemonDetail.height
+                    }">
+                  </li>
+                  <li class="card__height">
+                    <label for="weight">Weight:</label>
+                    <input type="text" id="weight" name="weight" required
+                    minlength="1" maxlength="4" size="4" value="${
+                      this.pokemonDetail.height
+                    }">
+                  </li>
+                  </ul>
+            `;
+    if (this.pokemonDetail.types.length > 1) {
+      this.cardElement.querySelector(
+        ".type2"
+      ).value = ` - ${this.pokemonDetail.types[1].type.name}`;
+    }
+
+    this.editButton.removeEventListener("click", this.showEditCard);
+    this.editButton.textContent = "SAVE";
+    this.editButton.addEventListener("click", this.saveCardChanges);
+  };
 }
 
 export default Detail;
