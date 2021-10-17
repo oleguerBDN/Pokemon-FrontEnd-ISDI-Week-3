@@ -86,8 +86,8 @@ class Detail {
 
   addEditButton() {
     this.editButton = document.createElement("button");
-    this.editButton.className = "edit";
-    this.editButton.textContent = "EDIT POKEMON";
+    this.editButton.className = "detail__edit";
+    this.editButton.textContent = "EDIT";
     this.parentElement.appendChild(this.editButton);
     this.editButton.addEventListener("click", this.showEditCard);
   }
@@ -170,7 +170,7 @@ class Detail {
     await this.pokemonService.modifyPokemon(this.url, this.pokemonDetail);
     this.fillCard();
     this.editButton.removeEventListener("click", this.saveCardChanges);
-    this.editButton.textContent = "EDIT POKEMON";
+    this.editButton.textContent = "EDIT";
     this.editButton.addEventListener("click", this.showEditCard);
   }
 }
